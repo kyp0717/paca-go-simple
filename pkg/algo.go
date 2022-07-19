@@ -6,7 +6,7 @@ import (
 
   "github.com/alpacahq/alpaca-trade-api-go/v2/alpaca"
 	"github.com/alpacahq/alpaca-trade-api-go/v2/marketdata"
-	"github.com/shopspring/decimal"
+	// "github.com/shopspring/decimal"
   )
 
 type bucket struct {

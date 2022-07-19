@@ -30,6 +30,8 @@ type stockField struct {
 	pc   float64
 }
 
+var algo longShortAlgo
+
 // Rebalance the portfolio every minute, making necessary trades.
 func (alp longShortAlgo) run() error {
 

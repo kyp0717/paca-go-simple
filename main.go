@@ -24,7 +24,9 @@ func main() {
 		fmt.Println("error: file not found")
 	}
 
-  paca := NewPacaClient()
+  
+
+  paca:= NewPacaClient()
   job1 := NewJob(paca, "AMD") // get prices from alpaca
   job2 := job1.GetData()
   job3 := job2.Train()

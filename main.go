@@ -30,8 +30,6 @@ func main() {
 
   for {
     algoPL.Extract()
-    algoPL.Train()
-    algoPL.Infer()
   }
 
 

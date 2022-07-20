@@ -24,13 +24,11 @@ func main() {
 		fmt.Println("error: file not found")
 	}
 
-  algoClient := NewAlgoClient()
-  algoPL:= NewAlgoPipeLine(algoClient)
-  
-
-  for {
-    algoPL.Extract()
-  }
-
+  paca := NewPacaClient()
+  job1 := NewJob(paca, "AMD") // get prices from alpaca
+  job2 := job1.GetData()
+  job3 := job2.Train()
+  job4 := job3.Infer()
+  job4.Trade()
 
 }

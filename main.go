@@ -16,7 +16,7 @@ import (
 )
 
 func main() {
-  done := make(chan bool)
+  exitTrade := make(chan bool)
 	// err := godotenv.Load("~/projects/paca-go/.env")
 	err := godotenv.Load()
 	if err != nil {
@@ -24,12 +24,11 @@ func main() {
 	}
 
   paca:= NewPacaClient()
-
   job1 := NewJob(paca, "AMD") // get prices from alpaca
-  job2 := job1.GetData()
+  job2 := job1.StreamData()
+  job2.EnterTrade(paca) // hang here until order is submitted
   job3 := job2.Train()
   job4 := job3.Infer()
-  job4.Trade(paca, done)
-  <-done
-
+  job4.Trade(paca, exitTrade)
+  <-exitTrade
 }
